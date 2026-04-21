@@ -364,14 +364,25 @@ class SQLAgent:
             )
 
         return f"SELECT * FROM {table} LIMIT 50"
+
+        
     def _fix_having_clause_aliases(self, sql: str) -> str:
-        sql_lower = sql.lower()
-
-        if "having" not in sql_lower:
+        # Only modify HAVING clause, NOT entire SQL
+        if "HAVING" not in sql:
             return sql
-
-        # Replace aggregate functions with aliases
-        sql = sql.replace("COUNT(*)", "total_reviews")
-        sql = sql.replace("AVG(star_rating)", "avg_rating")
-
-        return sql
+    
+        # Split safely (case-insensitive handling)
+        import re
+        parts = re.split(r"\bHAVING\b", sql, flags=re.IGNORECASE)
+    
+        if len(parts) < 2:
+            return sql
+    
+        before = parts[0]
+        having = parts[1]
+    
+        # Fix ONLY HAVING clause
+        having = having.replace("COUNT(*)", "total_reviews")
+        having = having.replace("AVG(star_rating)", "avg_rating")
+    
+        return before + "HAVING " + having
