@@ -1,0 +1,103 @@
+1. Basic Exploration Questions
+
+
+
+“How many total reviews are there?”
+“Show me the latest 10 reviews”
+“What are the different product categories?”
+“How many unique customers have written reviews?”
+“Which marketplaces are present in the data?”
+📊 📈 2. Ratings & Sentiment Analysis
+
+Your star_rating column = instant analytics gold
+
+“What is the average rating overall?”
+“Which product category has the highest average rating?”
+“Which products have the lowest ratings?”
+“Show distribution of star ratings (1 to 5)”
+“Which marketplace has the best customer ratings?”
+🛍️ 📦 3. Product Insights
+
+Leverage product_id, product_title, product_category
+
+“Top 10 most reviewed products”
+“Which product category has the most reviews?”
+“Which products have high reviews but low ratings?” ⚡ (very powerful)
+“Find products with more than 100 reviews and rating below 3”
+“Which product titles appear most frequently?”
+👤 🧑‍💻 4. Customer Behavior
+
+Using customer_id
+
+“Top 10 customers who wrote most reviews”
+“How many customers wrote more than 5 reviews?”
+“What is the average number of reviews per customer?”
+“Find repeat reviewers”
+👍 📊 5. Helpfulness Analysis
+
+Using helpful_votes, total_votes
+
+“Which reviews are most helpful?”
+“Top 10 reviews by helpful votes”
+“What percentage of votes are helpful on average?”
+“Find reviews with high votes but low helpfulness ratio”
+“Which products get the most helpful reviews?”
+🛒 ✅ 6. Verified Purchase Insights
+
+Using verified_purchase
+
+“What percentage of reviews are from verified purchases?”
+“Do verified purchases have higher ratings?”
+“Compare ratings: verified vs non-verified”
+“Which products have most verified reviews?”
+💰 🌱 7. Vine Program Analysis
+
+Using vine
+
+“How many reviews are from Vine program?”
+“Do Vine reviews have higher ratings?”
+“Compare Vine vs non-Vine ratings”
+“Which categories have most Vine reviews?”
+🌍 🌐 8. Marketplace Analysis
+
+Using marketplace
+
+“Which marketplace has most reviews?”
+“Average rating per marketplace”
+“Top performing marketplace by customer satisfaction”
+“Which marketplace has most verified purchases?”
+📅 ⏳ 9. Time-Based Analysis
+
+Using review_date
+
+“How many reviews per month?”
+“Trend of ratings over time”
+“Which month had highest number of reviews?”
+“Are ratings improving over time?”
+🧠 🔥 10. Advanced / Smart Questions (BEST for AI Agent)
+
+These are where your project shines ✨
+
+“Find products that are popular but poorly rated”
+“Which categories have high engagement but low satisfaction?”
+“Identify suspicious reviews (low rating but high helpful votes)”
+“Find products with sudden spike in reviews”
+“Which products have polarized ratings (1 and 5 stars mostly)?”
+💬 🧾 11. Text-Based (RAG / NLP Ready)
+
+Using review_body, review_headline
+
+“What are common complaints in reviews?”
+“Summarize negative reviews for a product”
+“Find reviews mentioning ‘battery issue’”
+“What do customers like most about this product?”
+“Extract top keywords from reviews”
+🚀 🔥 BEST DEMO QUESTIONS (Use these in interview/demo)
+
+If you want to impress:
+
+“Find top 5 products with high reviews but low ratings”
+“Compare verified vs non-verified purchase ratings”
+“Which category has highest customer satisfaction?”
+“Show trend of reviews over time”
+“Find most helpful negative reviews”

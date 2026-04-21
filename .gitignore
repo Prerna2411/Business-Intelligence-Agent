@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Environment files
+.env
+.env.*
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Local app data
+data/uploads/
+data/vector_store/
+data/sparse_index/
+
+# Temporary pytest folders seen in this repo
+pytest-cache-files-*/
+
+# Logs and local databases
+*.log
+*.sqlite
+*.db
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
