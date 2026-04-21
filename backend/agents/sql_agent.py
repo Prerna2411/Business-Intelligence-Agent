@@ -65,6 +65,11 @@ class SQLAgent:
                 "Return strict JSON with keys sql, rationale, selected_tables, selected_columns, warnings. "
                 "Use only read-only SELECT queries. Never reference columns outside the provided schema. "
                 "Choose the query pattern that matches the business intent, not a generic time trend."
+                "NEVER use raw aggregate functions (COUNT, AVG, SUM) inside HAVING. "
+                "ALWAYS use aliases defined in SELECT inside HAVING. "
+                "Example: COUNT(*) AS total_reviews → use total_reviews in HAVING. "
+                "Example: AVG(star_rating) AS avg_rating → use avg_rating in HAVING. "
+
             ),
             user_prompt=self._build_generation_prompt(
                 question=question,
@@ -87,7 +92,7 @@ class SQLAgent:
             sql = fallback_sql
         sql = self._enforce_readable_product_label(sql=sql, selected=selected, query_pattern=query_pattern)
         sql = self._fix_having_clause_aliases(sql)
-        
+
         try:
             result = self.clickhouse.query(sql)
             error = None
