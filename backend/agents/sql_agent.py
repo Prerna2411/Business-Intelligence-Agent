@@ -81,12 +81,13 @@ class SQLAgent:
                 "warnings": [],
             },
         )
-
+    
         sql = (payload.get("sql") or fallback_sql).strip().rstrip(";")
         if not sql.lower().startswith("select"):
             sql = fallback_sql
         sql = self._enforce_readable_product_label(sql=sql, selected=selected, query_pattern=query_pattern)
-
+        sql = self._fix_having_clause_aliases(sql)
+        
         try:
             result = self.clickhouse.query(sql)
             error = None
@@ -358,3 +359,14 @@ class SQLAgent:
             )
 
         return f"SELECT * FROM {table} LIMIT 50"
+    def _fix_having_clause_aliases(self, sql: str) -> str:
+        sql_lower = sql.lower()
+
+        if "having" not in sql_lower:
+            return sql
+
+        # Replace aggregate functions with aliases
+        sql = sql.replace("COUNT(*)", "total_reviews")
+        sql = sql.replace("AVG(star_rating)", "avg_rating")
+
+        return sql
