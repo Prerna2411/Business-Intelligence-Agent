@@ -292,20 +292,7 @@ Helper scripts in `tools/`:
 - `inspect_rag_store.py`
   - inspect indexed document IDs and file names
 
-## Current Limitations
 
-- Streamlit currently imports the service directly instead of calling FastAPI over HTTP
-- mixed SQL + RAG synthesis is scaffolded but not yet a full combined reasoning workflow
-- the local embedding service is lightweight and deterministic, not a production embedding model
-- document indexing requires `chromadb` to be installed in the runtime environment
-
-## Roadmap
-
-- route frontend requests through FastAPI instead of direct service imports
-- add reranking for document retrieval
-- improve mixed SQL + RAG synthesis
-- add richer document citations in the UI
-- add benchmark-based evaluation for SQL accuracy and RAG faithfulness
 
 ## License
 
