@@ -6,13 +6,10 @@ on:
       - main
       - master
   pull_request:
-    branches:
-      - "**"
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -33,7 +30,6 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     needs: test
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
