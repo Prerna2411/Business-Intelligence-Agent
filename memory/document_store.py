@@ -9,15 +9,29 @@ class ChromaDocumentStore:
     def __init__(self, persist_path: str, collection_name: str = "uploaded_documents") -> None:
         self.persist_path = Path(persist_path)
         self.collection_name = collection_name
+        self.persist_path = Path("/tmp/chroma_db")  # force safe path
+        self.persist_path.mkdir(parents=True, exist_ok=True)
         self.persist_path.mkdir(parents=True, exist_ok=True)
         self._client = None
         self._collection = None
         self._available = None
 
+  
     @property
     def is_available(self) -> bool:
         if self._available is None:
-            self._available = self._ensure_collection() is not None
+            try:
+                self._available = self._ensure_collection() is not None
+            except Exception:
+                self._available = False
+        return bool(self._available)
+    @property
+    def is_available(self) -> bool:
+        if self._available is None:
+            try:
+                self._available = self._ensure_collection() is not None
+            except Exception:
+                self._available = False
         return bool(self._available)
 
     def upsert_chunks(self, chunks: list[DocumentChunk], embeddings: list[list[float]]) -> None:
@@ -86,7 +100,8 @@ class ChromaDocumentStore:
             self._available = False
             return None
 
-        self._client = chromadb.PersistentClient(path=str(self.persist_path))
+        ##self._client = chromadb.PersistentClient(path=str(self.persist_path))
+        self._client = chromadb.Client()  # in-memory (no SQLite issues)
         self._collection = self._client.get_or_create_collection(name=self.collection_name)
         self._available = True
         return self._collection
