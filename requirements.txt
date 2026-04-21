@@ -8,6 +8,8 @@ clickhouse-connect>=0.8.15
 groq>=0.13.1
 pandas>=2.2.3
 python-dotenv>=1.0.1
-chromadb>=0.5.23
+
 pypdf>=5.1.0
 python-docx>=1.1.2
+protobuf==3.20.3
+chromadb==0.4.24
