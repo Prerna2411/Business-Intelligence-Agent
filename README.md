@@ -292,8 +292,4 @@ Helper scripts in `tools/`:
 - `inspect_rag_store.py`
   - inspect indexed document IDs and file names
 
-
-
-## License
-
-Add your preferred license before publishing publicly.
+Project Link-https://huggingface.co/spaces/Prerna43/bi_agent
